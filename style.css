@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+:root {
+  --Moderate-violet: hsl(263, 55%, 52%);
+  --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --Very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --White: hsl(0, 0%, 100%);
+  --Almost-violet: hsl(263, 65%, 71%);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font: 500 14px "Barlow Semi Condensed";
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(246, 255, 254);
+}
+main {
+  display: grid;
+  max-width: 1150px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: min-content;
+  grid-gap: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.355);
+  padding: 30px 40px;
+
+  background-color: var(--Very-dark-grayish-blue);
+
+  border-radius: 10px;
+
+  color: var(--White);
+}
+
+/* Card User */
+
+.card-user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.card-user img {
+  border-radius: 50%;
+  border: 2px solid var(--White);
+
+  width: 32px;
+  height: 32px;
+
+  margin-right: 10px;
+}
+.card-user-text h1 {
+  font-weight: 600;
+  font-size: 15px;
+}
+.card-user-text h2 {
+  opacity: 50%;
+}
+
+/* Card Text*/
+
+.card-heading p {
+  margin: 10px 0px;
+  font-weight: 600;
+  font-size: 20px;
+}
+.card-details p {
+  opacity: 70%;
+  line-height: 1.5;
+}
+
+/* Daniel */
+
+.card[name="Daniel"] {
+  background-color: var(--Moderate-violet);
+  background-image: url(images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: 80% 0%;
+
+  grid-column: 1/3;
+  grid-row: 1;
+}
+.card[name="Daniel"] img {
+  border-color: var(--Almost-violet);
+}
+
+.card[name="Jeanette"] {
+  background-color: var(--White);
+  color: var(--Very-dark-blackish-blue);
+
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.card[name="Jonathan"] {
+  grid-column: 3/4;
+  grid-row: 1;
+}
+.card[name="Patrick"] {
+  grid-row: 2/3;
+  grid-column: 2/4;
+}
+.card[name="Kira"] {
+  background-color: var(--White);
+  color: var(--Very-dark-blackish-blue);
+
+  grid-row: 1/3;
+  grid-column: 4/5;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 20px;
+  }
+  main {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    width: 95%;
+    grid-gap: 15px;
+  }
+  .card[name="Daniel"] {
+    grid-column: 1/3;
+
+  }
+  .card[name="Jonathan"] {
+    grid-column: 3/4;
+ 
+  }
+  .card[name="Kira"] {
+    grid-column: 1/4;
+    grid-row: 3/4;
+  }
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+        grid-template-rows: repeat(auto, auto) ;
+    }
+    .card {
+        grid-column: unset !important;
+        grid-row: unset !important;
+    }
+}
